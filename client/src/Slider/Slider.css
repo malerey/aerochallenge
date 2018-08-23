@@ -1,0 +1,21 @@
+.main-slider {
+  width: 100vw;
+  font-size:64px;
+  color:#ffffff;
+  text-align:left;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  display:block;
+}
+
+.title {
+  position: absolute;
+  bottom: 48px;
+  left: 132px;
+}
