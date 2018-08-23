@@ -7,18 +7,22 @@ class Products extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      page: 1,
       data: {},
+      renderedData: [],
       received: false, 
       toggleHighest: false,
       toggleLowest: false,
-      togglenext: false,
+      toggleNext: false, 
     };
     this.higherPrice = this.higherPrice.bind(this); 
     this.lowerPrice = this.lowerPrice.bind(this); 
     this.toggleNext = this.toggleNext.bind(this); 
+
    }
 
   componentDidMount() {
+    const offset = (this.state.page - 1) * 16;
     fetch('http://localhost:3001/products')
       .then(data => {
         return data.json();
@@ -26,6 +30,7 @@ class Products extends Component {
       .then(result => {
         this.setState({
           data: result,
+          renderedData: result.slice(offset, offset + 16),
           received: true,
         });
       });
@@ -34,12 +39,17 @@ class Products extends Component {
 
   toggleNext() {
 
-    this.setState({
-      toggleNext: true,
-    });
+    let prods = [...this.state.data]
+    const offset = (this.state.page - 1) * 16;
+    this.setState(prevState => ({
+      toggleNext: !prevState.toggleNext, 
+      page: 2, 
+      renderedData: prods.slice(offset, offset + 16),
+    }));
   }
 
 lowerPrice() {
+  const offset = (this.state.page - 1) * 16;
   let prods = [...this.state.data]
   prods.sort(function(a, b) {
     return a.cost - b.cost;
@@ -47,11 +57,12 @@ lowerPrice() {
   this.setState({
     toggleHighest: false,
     toggleLowest: true,
-    data: prods
+    renderedData: prods.slice(offset, offset + 16),
   });
 }
 
 higherPrice() {
+  const offset = (this.state.page - 1) * 16;
   let prods = [...this.state.data]
   prods.sort(function(a, b) {
     return b.cost - a.cost;
@@ -59,13 +70,19 @@ higherPrice() {
   this.setState({
     toggleHighest: true,
     toggleLowest: false,
-    data: prods
+    renderedData: prods.slice(offset, offset + 16),
   });
 }
 
 
   render() {
+
+
+    console.log("holi")
+
     const received = this.state.received
+    
+
 
     return (
       <div className='main-products'>
@@ -79,15 +96,15 @@ higherPrice() {
               onClick={this.lowerPrice}>Lowest price</div>
  
           </div>
-          <div className='next'>
-          <div className={this.state.toggleNext ? '' : ''} 
-              onClick={this.toggleNext}></div></div>
+          <div className='next'><div className={this.state.toggleNext ? 'left' : 'right'} 
+              onClick={this.toggleNext}></div>
+          </div>
         </div>
         <div className='line'></div>
         <div>
           {received ? (
             <div className='products'>
-              {this.state.data.map((result, index) => {
+              {this.state.renderedData.map((result, index) => {
                 return <Product key={index} result={result} />;
               })}
             </div>
@@ -97,7 +114,9 @@ higherPrice() {
         </div>
         <div className='sort-container'>
         <Quantity result={this.state.data.length}/>
-        <div className='next'></div>
+        <div className='next'><div className={this.state.toggleNext ? 'left' : 'right'} 
+              onClick={this.toggleNext}></div>
+              </div>
         
         </div>
         <div className='line'></div>
