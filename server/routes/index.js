@@ -14,7 +14,7 @@ router.all('/*', function(req, res, next) {
 
 router.get('/user', userController.getUser);
 router.post('/points', pointsController.postPoints);
-router.post('/redeem', redeemController.postRedeem);
+router.post('/redeem/:id', redeemController.postRedeem);
 router.get('/user/history', userController.getHistory);
 router.get('/products', productsController.getProducts);
 

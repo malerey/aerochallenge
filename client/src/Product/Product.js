@@ -8,12 +8,14 @@ class Product extends Component {
     this.state = {
     };
 
-    this.redeemNow = this.redeemNow.bind(this);
+    this.handleRedeem = this.handleRedeem.bind(this);
   }
 
-  redeemNow() {
-
-  }
+  handleRedeem() { 
+    fetch('http://localhost:3001/redeem/' + this.props.result._id, {
+       method: 'post',
+      });
+     };
 
   render() {
     const props = this.props.result

@@ -12,7 +12,6 @@ self.getUser = function (req, res) {
 
 self.getHistory = function (req, res) {
   userService.getHistory().then(history => {
-    console.log(res.json(history))
     return res.json(history);
   })
     .catch(function (err) {
@@ -22,15 +21,15 @@ self.getHistory = function (req, res) {
 
 
 
-self.postRedeem = function (req, res) {
-  userService.postRedeem().then(redeem => {
-    console.log(res.json(redeem))
-    return res.json(redeem);
-  })
-    .catch(function (err) {
-      console.log(err);
-    });
-};
+// self.postRedeem = function (req, res) {
+//   userService.postRedeem().then(redeem => {
+//     console.log(res.json(redeem))
+//     return res.json(redeem);
+//   })
+//     .catch(function (err) {
+//       console.log(err);
+//     });
+// };
 
 
 module.exports = self;

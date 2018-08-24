@@ -2,7 +2,8 @@ let self = {};
 const redeemService = require("../services/redeemService");
 
 self.postRedeem = function (req, res) {
-  redeemService.postRedeem().then(data => {
+  const id = req.params.id;
+  redeemService.postRedeem(id).then(data => {
     console.log(res.json(data))
     return res.json(data);
   })
