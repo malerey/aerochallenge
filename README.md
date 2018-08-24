@@ -11,3 +11,9 @@ You must download all archives and run the following commands in both the server
 ### `npm start`
 
 The server runs in port 3001 and the frontend in port 3000.  
+
+(Note: The version running in Now doesn't have node, and all the requests are made from the frontend. I uploaded it this way so it could be easily deployable) 
+
+Todos: 
+- Add responsive design
+- Points should update after redeeming a product
