@@ -38,28 +38,29 @@ class Products extends Component {
   }
 
   toggleNext() {
-
+    let nextPage = this.state.page + 1
     let prods = [...this.state.data]
-    const offset = (this.state.page - 1) * 16;
+    const offset = (nextPage - 1) * 16;
     this.setState(prevState => ({
-      toggleNext: !prevState.toggleNext, 
-      page: 2, 
+      toggleNext: !prevState.toggleNext,
+      page: nextPage,
       renderedData: prods.slice(offset, offset + 16),
     }));
   }
 
-lowerPrice() {
-  const offset = (this.state.page - 1) * 16;
-  let prods = [...this.state.data]
-  prods.sort(function(a, b) {
-    return a.cost - b.cost;
-  });
-  this.setState({
-    toggleHighest: false,
-    toggleLowest: true,
-    renderedData: prods.slice(offset, offset + 16),
-  });
-}
+  lowerPrice() {
+    const offset = (this.state.page - 1) * 16;
+    let prods = [...this.state.data]
+    prods.sort(function(a, b) {
+      return a.cost - b.cost;
+    });
+    this.setState({
+      toggleHighest: false,
+      toggleLowest: true,
+      data: prods,
+      renderedData: prods.slice(offset, offset + 16),
+    });
+    }
 
 higherPrice() {
   const offset = (this.state.page - 1) * 16;
@@ -70,6 +71,7 @@ higherPrice() {
   this.setState({
     toggleHighest: true,
     toggleLowest: false,
+    data: prods,
     renderedData: prods.slice(offset, offset + 16),
   });
 }
@@ -126,3 +128,4 @@ higherPrice() {
 }
 
 export default Products;
+
