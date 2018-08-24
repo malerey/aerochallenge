@@ -19,17 +19,4 @@ self.getHistory = function (req, res) {
     });
 };
 
-
-
-// self.postRedeem = function (req, res) {
-//   userService.postRedeem().then(redeem => {
-//     console.log(res.json(redeem))
-//     return res.json(redeem);
-//   })
-//     .catch(function (err) {
-//       console.log(err);
-//     });
-// };
-
-
 module.exports = self;

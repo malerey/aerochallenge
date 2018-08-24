@@ -5,7 +5,6 @@ const url = 'https://aerolab-challenge.now.sh/'
 const apiToken = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1YjdjNDA3YWZhZGVhMDAwNWJjN2U3YzgiLCJpYXQiOjE1MzQ4Njk2MjZ9.5cIEpn2bJ4nLsGDgp5bwQQ15fyNfJX998WLL_U95ovc';
 
 self.postRedeem = function (id) {
-  console.log(id)
   const redeemPromise = new Promise((resolve, reject) => {
     rest
       .post(url + 'redeem', {

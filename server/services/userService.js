@@ -43,24 +43,5 @@ self.getHistory = function() {
   return historyPromise;
 };
 
-// self.postRedeem = function() {
-//   const redeemPromise = new Promise((resolve, reject) => {
-//     rest
-//       .post(url + 'redeem', {
-//         headers: {
-//               'Content-Type': 'application/json',
-//               'Accept': 'application/json',
-//               'Authorization': apiToken
-//       }, 
-//       body: "{  \"productId\": \"5a033eeb364bf301523e9b92\"}"
-//       }) 
-//       .on('complete', function(result) {
-//         resolve(result)
-//       }).on('fail', function(err) {
-//         reject(err)
-//       })
-//       });
-//   return redeemPromise;
-// };
 
 module.exports = self;

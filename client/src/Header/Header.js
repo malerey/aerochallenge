@@ -4,9 +4,6 @@ import coin from '../Images/coin.svg';
 import './Header.css';
 
 class Header extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     const received = this.props.data.received;
@@ -17,7 +14,7 @@ class Header extends Component {
         <div className='main-header-container'>
           <div className='logo-container'>
             <a href='/'>
-              <img alt='Aerolabs logo' src={logo} />
+              <img alt='Aerolab logo' src={logo} />
             </a>
           </div>
           <div className='user-info'>
@@ -25,7 +22,9 @@ class Header extends Component {
             </div>
             <div className='user-points-container'>
               <div className='user-points'>{props.points}</div>
-              <div className='user-points-icon'>{received ? <img src={coin} alt="Points icon"></img> : ''}</div>
+              <div className='user-points-icon'>
+                {received ? <img src={coin} alt="Points icon"></img> : ''}
+              </div>
             </div>
           </div>
         </div>

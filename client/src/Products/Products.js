@@ -15,25 +15,14 @@ class Products extends Component {
       received: false,
       toggleHighest: false,
       toggleLowest: false,
-      userdata: {},
     };
     this.higherPrice = this.higherPrice.bind(this);
     this.lowerPrice = this.lowerPrice.bind(this);
     this.nextPage = this.nextPage.bind(this);
     this.previousPage = this.previousPage.bind(this);
-
   }
 
   componentDidMount() {
-    fetch('http://localhost:3001/user')
-    .then(data => {
-      return data.json();
-    })
-    .then(result => {
-      this.setState({
-        userdata: result,
-      });
-    });
     const offset = (this.state.page - 1) * 16;
     fetch('http://localhost:3001/products')
       .then(data => {
@@ -46,29 +35,24 @@ class Products extends Component {
           received: true,
         });
       });
+  }
 
+  changePage(page) {
+    let prods = [...this.state.data]
+    const offset = (page - 1) * 16;
+    this.setState({
+      page: page,
+      renderedData: prods.slice(offset, offset + 16),
+    });
   }
 
   nextPage() {
-    let plusPage = this.state.page + 1
-    let prods = [...this.state.data]
-    const offset = (plusPage - 1) * 16;
-    this.setState({
-      page: plusPage,
-      renderedData: prods.slice(offset, offset + 16),
-    });
+    this.changePage(this.state.page + 1)
   }
 
   previousPage() {
-    let minusPage = this.state.page - 1
-    let prods = [...this.state.data]
-    const offset = (minusPage - 1) * 16;
-    this.setState({
-      page: minusPage,
-      renderedData: prods.slice(offset, offset + 16),
-    });
+    this.changePage(this.state.page - 1)
   }
-
 
   lowerPrice() {
     const offset = (this.state.page - 1) * 16;
@@ -96,13 +80,10 @@ class Products extends Component {
       data: prods,
       renderedData: prods.slice(offset, offset + 16),
     });
-    console.log(this.state.renderedData)
   }
-
 
   render() {
     const received = this.state.received
-
 
     return (
       <div className='main-products'>
@@ -114,21 +95,18 @@ class Products extends Component {
               onClick={this.higherPrice}>Highest price</div>
             <div className={this.state.toggleLowest ? 'bluebtn' : 'whitebtn'}
               onClick={this.lowerPrice}>Lowest price</div>
-
           </div>
-
           <div className='arrows'>
-            <div className='next' onClick={this.previousPage}><img src={arrowleft} /></div>
-            <div className='previous' onClick={this.nextPage}><img src={arrowright} /></div>
+            <div className='next' onClick={this.previousPage}><img alt='previous Page' src={arrowleft} /></div>
+            <div className='previous' onClick={this.nextPage}><img alt='next Page' src={arrowright} /></div>
           </div>
-
         </div>
         <div className='line'></div>
         <div>
           {received ? (
             <div className='products'>
               {this.state.renderedData.map((result, index) => {
-                return <Product key={index} result={result} user={this.state.userdata}/>;
+                return <Product key={index} result={result} user={this.props.data.userdata} />;
               })}
             </div>
           ) : (
@@ -137,14 +115,11 @@ class Products extends Component {
         </div>
         <div className='sort-container'>
           <Quantity result={this.state} />
-
           <div className='arrows'>
-            <div className='next' onClick={this.previousPage}><img src={arrowleft} /></div>
-            <div className='previous' onClick={this.nextPage}><img src={arrowright} /></div>
+            <div className='next' onClick={this.previousPage}><img alt='previous Page' src={arrowleft} /></div>
+            <div className='previous' onClick={this.nextPage}><img alt='next Page' src={arrowright} /></div>
           </div>
-
         </div>
-
         <div className='line'></div>
       </div>
     );
