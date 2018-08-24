@@ -7,6 +7,7 @@
   transition: .2s ease;
 }
 
+
 .container:hover .result-container {
   transform: translate(0px, -10px);
 
@@ -20,6 +21,10 @@
   top: 0;
   left: 0;
   transition: .5s ease;
+}
+
+.unavailable {
+  opacity: 0.3;
 }
 
 .container:hover{
@@ -45,7 +50,6 @@
 }
 
 .middle {
-  background-image:linear-gradient(-180deg, #0ad4fa 0%, #25bbf1 100%);
   opacity: 0;
   width: 100%;
   height: 100%;
@@ -57,6 +61,14 @@
   justify-content: center;
   align-items: center;
   transition: .5s ease;
+}
+
+.middleavailable {
+  background-image:linear-gradient(-180deg, #0ad4fa 0%, #25bbf1 100%);
+}
+
+.middleunavailable {
+  background-image:linear-gradient(-180deg, #fa300a 0%, #f15b25 100%);
 }
 
 .container:hover .middle {
@@ -80,12 +92,41 @@
   letter-spacing:-0.04px;
   text-align:center;
   border-radius:100px;
+  border: none;
   opacity:0;
   position:relative;
   margin: 157px 24px 77px 24px;
 }
 
+.noredeem {
+  background-color:#ffffff;
+  width:228px;
+  height:42px;
+  line-height: 42px;
+  font-size:18px;
+  color:#616161;
+  letter-spacing:-0.04px;
+  text-align:center;
+  border-radius:100px;
+  border: none;
+  opacity:0;
+  position:relative;
+  margin: 157px 24px 77px 24px;
+}
+
+.redeem:hover {
+    background-color: #1E9CC8;
+    color: white;
+}
+
+
 .container:hover .redeem {
+  transition: .5s ease;
+  opacity:1;
+  transform: translate(0px, -10px);
+}
+
+.container:hover .noredeem {
   transition: .5s ease;
   opacity:1;
   transform: translate(0px, -10px);

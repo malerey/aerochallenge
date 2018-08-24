@@ -15,6 +15,7 @@ class Products extends Component {
       received: false,
       toggleHighest: false,
       toggleLowest: false,
+      userdata: {},
     };
     this.higherPrice = this.higherPrice.bind(this);
     this.lowerPrice = this.lowerPrice.bind(this);
@@ -24,6 +25,15 @@ class Products extends Component {
   }
 
   componentDidMount() {
+    fetch('http://localhost:3001/user')
+    .then(data => {
+      return data.json();
+    })
+    .then(result => {
+      this.setState({
+        userdata: result,
+      });
+    });
     const offset = (this.state.page - 1) * 16;
     fetch('http://localhost:3001/products')
       .then(data => {
@@ -86,11 +96,13 @@ class Products extends Component {
       data: prods,
       renderedData: prods.slice(offset, offset + 16),
     });
+    console.log(this.state.renderedData)
   }
 
 
   render() {
     const received = this.state.received
+
 
     return (
       <div className='main-products'>
@@ -116,7 +128,7 @@ class Products extends Component {
           {received ? (
             <div className='products'>
               {this.state.renderedData.map((result, index) => {
-                return <Product key={index} result={result} />;
+                return <Product key={index} result={result} user={this.state.userdata}/>;
               })}
             </div>
           ) : (
