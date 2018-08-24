@@ -6,10 +6,14 @@ class Quantity extends Component {
   }
 
   render() {
-    let length = this.props.result
+    let length = this.props.result.data.length
+    let prodslength = this.props.result.renderedData.length
+    let page = this.props.result.page 
+
+    console.log(this.props.result)
 
     return (
-      <div className='quantity'>16 of {length} products</div>
+      <div className='quantity'>Page {page} | {prodslength} of {length} products</div>
     );
   }
 }

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Quantity from '../Quantity/Quantity';
 import Product from '../Product/Product';
+import arrowleft from '../Images/arrow-left.svg'
+import arrowright from '../Images/arrow-right.svg'
 import './Products.css';
 
 class Products extends Component {
@@ -10,16 +12,16 @@ class Products extends Component {
       page: 1,
       data: {},
       renderedData: [],
-      received: false, 
+      received: false,
       toggleHighest: false,
       toggleLowest: false,
-      toggleNext: false, 
     };
-    this.higherPrice = this.higherPrice.bind(this); 
-    this.lowerPrice = this.lowerPrice.bind(this); 
-    this.toggleNext = this.toggleNext.bind(this); 
+    this.higherPrice = this.higherPrice.bind(this);
+    this.lowerPrice = this.lowerPrice.bind(this);
+    this.nextPage = this.nextPage.bind(this);
+    this.previousPage = this.previousPage.bind(this);
 
-   }
+  }
 
   componentDidMount() {
     const offset = (this.state.page - 1) * 16;
@@ -34,24 +36,34 @@ class Products extends Component {
           received: true,
         });
       });
-      
+
   }
 
-  toggleNext() {
-    let nextPage = this.state.page + 1
+  nextPage() {
+    let plusPage = this.state.page + 1
     let prods = [...this.state.data]
-    const offset = (nextPage - 1) * 16;
-    this.setState(prevState => ({
-      toggleNext: !prevState.toggleNext,
-      page: nextPage,
+    const offset = (plusPage - 1) * 16;
+    this.setState({
+      page: plusPage,
       renderedData: prods.slice(offset, offset + 16),
-    }));
+    });
   }
+
+  previousPage() {
+    let minusPage = this.state.page - 1
+    let prods = [...this.state.data]
+    const offset = (minusPage - 1) * 16;
+    this.setState({
+      page: minusPage,
+      renderedData: prods.slice(offset, offset + 16),
+    });
+  }
+
 
   lowerPrice() {
     const offset = (this.state.page - 1) * 16;
     let prods = [...this.state.data]
-    prods.sort(function(a, b) {
+    prods.sort(function (a, b) {
       return a.cost - b.cost;
     });
     this.setState({
@@ -60,21 +72,21 @@ class Products extends Component {
       data: prods,
       renderedData: prods.slice(offset, offset + 16),
     });
-    }
+  }
 
-higherPrice() {
-  const offset = (this.state.page - 1) * 16;
-  let prods = [...this.state.data]
-  prods.sort(function(a, b) {
-    return b.cost - a.cost;
-  });
-  this.setState({
-    toggleHighest: true,
-    toggleLowest: false,
-    data: prods,
-    renderedData: prods.slice(offset, offset + 16),
-  });
-}
+  higherPrice() {
+    const offset = (this.state.page - 1) * 16;
+    let prods = [...this.state.data]
+    prods.sort(function (a, b) {
+      return b.cost - a.cost;
+    });
+    this.setState({
+      toggleHighest: true,
+      toggleLowest: false,
+      data: prods,
+      renderedData: prods.slice(offset, offset + 16),
+    });
+  }
 
 
   render() {
@@ -83,24 +95,27 @@ higherPrice() {
     console.log("holi")
 
     const received = this.state.received
-    
+
 
 
     return (
       <div className='main-products'>
         <div className='sort-container'>
-          <Quantity result={this.state.data.length}/>
+          <Quantity result={this.state} />
           <div className='dividor'></div>
           <div className='sort-by'>Sort by
-            <div className={this.state.toggleHighest ? 'bluebtn' : 'whitebtn'} 
+            <div className={this.state.toggleHighest ? 'bluebtn' : 'whitebtn'}
               onClick={this.higherPrice}>Highest price</div>
-              <div className={this.state.toggleLowest ? 'bluebtn' : 'whitebtn'} 
+            <div className={this.state.toggleLowest ? 'bluebtn' : 'whitebtn'}
               onClick={this.lowerPrice}>Lowest price</div>
- 
+
           </div>
-          <div className='next'><div className={this.state.toggleNext ? 'left' : 'right'} 
-              onClick={this.toggleNext}></div>
+
+          <div className='arrows'>
+          <div className='next' onClick={this.previousPage}><img src={arrowleft}/></div>
+          <div className='previous' onClick={this.nextPage}><img src={arrowright}/></div>
           </div>
+
         </div>
         <div className='line'></div>
         <div>
@@ -115,12 +130,15 @@ higherPrice() {
             )}
         </div>
         <div className='sort-container'>
-        <Quantity result={this.state.data.length}/>
-        <div className='next'><div className={this.state.toggleNext ? 'left' : 'right'} 
-              onClick={this.toggleNext}></div>
-              </div>
-        
+          <Quantity result={this.state} />
+
+          <div className='arrows'>
+          <div className='next'><img src={arrowleft}/></div>
+          <div className='previous'><img src={arrowright}/></div>
+          </div>
+          
         </div>
+
         <div className='line'></div>
       </div>
     );
@@ -128,4 +146,3 @@ higherPrice() {
 }
 
 export default Products;
-
