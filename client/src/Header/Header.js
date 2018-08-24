@@ -6,27 +6,12 @@ import './Header.css';
 class Header extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      data: {},
-      received: false
-    };
-  }
-
-  componentDidMount() {
-    fetch('http://localhost:3001/user')
-      .then(data => {
-        return data.json();
-      })
-      .then(result => {
-        this.setState({
-          data: result,
-          received: true,
-        });
-      });
   }
 
   render() {
-    const received = this.state.received;
+    const received = this.props.data.received;
+    const props = this.props.data.userdata
+
     return (
       <header>
         <div className='main-header-container'>
@@ -36,10 +21,10 @@ class Header extends Component {
             </a>
           </div>
           <div className='user-info'>
-            <div className='user-name'>{this.state.data.name}
+            <div className='user-name'>{props.name}
             </div>
             <div className='user-points-container'>
-              <div className='user-points'>{this.state.data.points}</div>
+              <div className='user-points'>{props.points}</div>
               <div className='user-points-icon'>{received ? <img src={coin} alt="Points icon"></img> : ''}</div>
             </div>
           </div>

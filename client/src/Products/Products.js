@@ -90,13 +90,7 @@ class Products extends Component {
 
 
   render() {
-
-
-    console.log("holi")
-
     const received = this.state.received
-
-
 
     return (
       <div className='main-products'>
@@ -112,8 +106,8 @@ class Products extends Component {
           </div>
 
           <div className='arrows'>
-          <div className='next' onClick={this.previousPage}><img src={arrowleft}/></div>
-          <div className='previous' onClick={this.nextPage}><img src={arrowright}/></div>
+            <div className='next' onClick={this.previousPage}><img src={arrowleft} /></div>
+            <div className='previous' onClick={this.nextPage}><img src={arrowright} /></div>
           </div>
 
         </div>
@@ -133,10 +127,10 @@ class Products extends Component {
           <Quantity result={this.state} />
 
           <div className='arrows'>
-          <div className='next'><img src={arrowleft}/></div>
-          <div className='previous'><img src={arrowright}/></div>
+            <div className='next' onClick={this.previousPage}><img src={arrowleft} /></div>
+            <div className='previous' onClick={this.nextPage}><img src={arrowright} /></div>
           </div>
-          
+
         </div>
 
         <div className='line'></div>

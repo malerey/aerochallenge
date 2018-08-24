@@ -10,8 +10,6 @@ class Quantity extends Component {
     let prodslength = this.props.result.renderedData.length
     let page = this.props.result.page 
 
-    console.log(this.props.result)
-
     return (
       <div className='quantity'>Page {page} | {prodslength} of {length} products</div>
     );
