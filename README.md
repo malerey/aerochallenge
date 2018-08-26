@@ -12,6 +12,8 @@ You must download all archives and run the following commands in both the server
 
 The server runs in port 3001 and the frontend in port 3000.  
 
+Or just go to https://malerey-aero.now.sh/ 
+
 To-dos: 
 - SVG icons now the same size but still behave weird on hover.  
 - When user clics "Highest price" or "Lowest price" while on page 2, page 1 should be displayed.
