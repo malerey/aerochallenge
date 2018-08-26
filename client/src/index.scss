@@ -102,8 +102,6 @@ header {
   -webkit-animation-timing-function: $logo-timing-function;
   -ms-animation-timing-function: $logo-timing-function;
 }
-
-
   img {
     height: 100%;
     width: auto;
@@ -171,21 +169,11 @@ header {
   display: inline-block;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1175px) {
   .user-name {
     font-size: $category-font
   }
-  }
-@media only screen and (min-width: 768px) and (max-width: 960px) {
-  .user-name {
-    font-size: $category-font
-  }
-  }
-@media screen and (min-width: 960px) and (max-width: 1175px) {
-  .user-name {
-    font-size: $category-font
-  }
-  }
+}
 
 .user-points-container {
   background: $light-buttons;
@@ -202,21 +190,11 @@ header {
   display: inline-block;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1175px) {
   .user-points {
     font-size: $category-font
   }
-  }
-@media only screen and (min-width: 768px) and (max-width: 960px) {
-  .user-points {
-    font-size: $category-font
-  }
-  }
-@media screen and (min-width: 960px) and (max-width: 1175px) {
-  .user-points {
-    font-size: $category-font
-  }
-  }
+}
 
 .user-points-icon {
   width: $header-font;
@@ -229,21 +207,11 @@ header {
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1175px) {
   .user-points-icon {
     font-size: $category-font
   }
-  }
-@media only screen and (min-width: 768px) and (max-width: 960px) {
-  .user-points-icon {
-    font-size: $category-font
-  }
-  }
-@media screen and (min-width: 960px) and (max-width: 1175px) {
-  .user-points-icon {
-    font-size: $category-font
-  }
-  }
+}
 
 /* SLIDER */
 
@@ -257,21 +225,11 @@ header {
   display: inline-block;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1175px) {
   .main-slider {
     font-size: $products-font;
   }
-  }
-@media only screen and (min-width: 768px) and (max-width: 960px) {
-  .main-slider {
-    font-size: $products-font;
-  }
-  }
-@media screen and (min-width: 960px) and (max-width: 1175px) {
-  .main-slider {
-    font-size: $products-font;
-  }
-  }
+}
 
 .image-container {
   width: 100%;
@@ -282,7 +240,6 @@ header {
   width: 100%;
   height: auto;
 }
-
 
 .title {
   position: absolute;
@@ -305,21 +262,12 @@ header {
   justify-content: space-between;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1340px) {
   .sort-container {
     margin: 0;
-    flex-direction: column;}
+    flex-direction: column;
   }
-@media only screen and (min-width: 768px) and (max-width: 960px) {
-  .sort-container {
-    margin: 0;
-    flex-direction: column;}
-  }
-@media screen and (min-width: 960px) and (max-width: 1340px) {
-  .sort-container {
-    margin: 0;
-    flex-direction: column;}
-  }
+}
 
 .quantity {
   display: inline-block;
@@ -332,9 +280,9 @@ header {
 @media only screen  and (max-width: 960px) {
   .quantity {
     font-size: $header-font;
-    margin: 0;}
+    margin: 0;
   }
-
+}
 
 .dividor {
   display: inline-block;
@@ -346,8 +294,9 @@ header {
 
 @media only screen and (max-width: 1340px) {
   .dividor {
-    display:none;}
+    display:none;
   }
+}
 
 .sort-by {
   display: inline-block;
@@ -363,16 +312,15 @@ header {
   }
 }
 
-  .sort-msg {
-    display: inline-block;
+.sort-msg {
+  display: inline-block;
+}
 
+@media only screen  and (max-width: 960px) {
+  .sort-msg {
+    display: block;
   }
-  @media only screen  and (max-width: 960px) {
-    .sort-msg {
-      display: block;
-  
-    }
-  }
+}
 
 .bluebtn {
   display: inline-block;
@@ -383,10 +331,12 @@ header {
   height: $largest-margin;
   margin: $button-margin;
 }
+
 @media only screen  and (max-width: 960px) {
   .bluebtn {
-    margin: $smallest-margin;}
+    margin: $smallest-margin;
   }
+}
 
 .whitebtn {
   display: inline-block;
@@ -399,8 +349,9 @@ header {
 }
 @media only screen  and (max-width: 960px) {
   .whitebtn {
-    margin: $smallest-margin;}
+    margin: $smallest-margin;
   }
+}
 
 .whitebtn:hover {
   box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.10);
@@ -418,7 +369,6 @@ header {
   margin: $margin
   }
 }
-
 
 .next {
   margin-right: $smaller-margin;
@@ -438,19 +388,11 @@ header {
   margin: 0 $main-margin $smallest-margin $main-margin;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1175px) {
   .line {
-    margin: 0}
+    margin: 0
   }
-@media only screen and (min-width: 768px) and (max-width: 960px) {
-  .line {
-    margin: 0}
-  }
-@media screen and (min-width: 960px) and (max-width: 1175px) {
-  .line {
-    margin: 0}
-  }
-
+}
 
 .products {
   display: grid;
@@ -463,16 +405,23 @@ header {
   @media only screen and (max-width: 768px) {
     .products {
       grid-template-columns: auto;
-    margin: 0 } }
+    margin: 0 
+  } 
+}
   @media only screen and (min-width: 768px) and (max-width: 960px) {
     .products {
       grid-template-columns: auto auto;
-    margin:0 } }
+    margin:0
+  }
+}
   @media screen and (min-width: 960px) and (max-width: 1175px) {
     .products {
       grid-template-columns: auto auto auto;
-    margin:0 } }
-/* SINGLE PRODUCT */
+    margin:0
+    } 
+  }
+
+  /* SINGLE PRODUCT */
 
 .container {
   position: relative;
@@ -480,9 +429,8 @@ header {
   background-color: $white;
   :hover .result-container {
     transform: $main-transform;
+  }
 }
-}
-
 
 .result-container {
   box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.10);
@@ -515,14 +463,12 @@ header {
   margin: 12px;
   padding: 8px 15px;
   display: inline-block;
-
   height: $buy-icon;
   width: $buy-icon;
   z-index: 3;
   background-image: url(./Images/buy-blue.svg);
   transition: $main-transition;
 }
-
 
 .img {
   text-align: center;
@@ -531,7 +477,7 @@ header {
   min-width: 255px;
 }
 
-.middle {
+.filter {
   opacity: 0;
   width: 100%;
   height: 100%;
@@ -545,27 +491,26 @@ header {
   transition: $main-transition;
 }
 
-.middleavailable {
+.filteravailable {
   background-image: linear-gradient(-180deg, $main-color 0%, $dark-main-color 100%);
 }
 
-.middleunavailable {
+.filterunavailable {
   background-image: linear-gradient(-180deg, $complementary-color 0%, $light-complementary-color 100%);
 }
 
 .container:hover {
-  .middle {
+  .filter {
   opacity: 0.9;
-}
+  }
  .buy-icon {
   background-image: url(./Images/buy-white.svg);
   opacity: 1;
   transform: $main-transform;
-}
+  }
 }
 
 .redeem, .noredeem {
-
   background-color: $white;
   width: $redeem-width;
   height: $larger-margin;
@@ -578,7 +523,6 @@ header {
   opacity: 0;
   position: relative;
   margin: $redeem-margin;
-
 }
 
 
@@ -586,23 +530,22 @@ header {
   &:hover {
   background-color: $darkest-main-color;
   color: $white;
-}
+  }
 &:active {
   background-color: $white;
   color: $grey;
+  }
 }
-}
-
 
 .container:hover {
   .redeem, .noredeem {
   transition: $main-transition;
   opacity: 1;
   transform: $main-transform;
-}
+  }
 .points-product {
   transform: $main-transform;
-}
+  }
 }
 
 .points-product {

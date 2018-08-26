@@ -24,13 +24,13 @@ class Product extends Component {
     let available = 'result-container unavailable'
     const noredeemtext = 'You still need ' + missingpoints + ' points'
     let redeem = <button className='noredeem' disabled>{noredeemtext}</button>
-    let middle = 'middle middleunavailable'
+    let filter = 'filter filterunavailable'
 
     if (user.points >= props.cost) {
       buyicon = 'buy-icon';
       available = 'result-container'
       redeem = <button className='redeem' onClick={this.handleRedeem.bind(this)}>Redeem now!</button>
-      middle = 'middle middleavailable'
+      filter = 'filter filteravailable'
     }
 
     return (
@@ -52,7 +52,7 @@ class Product extends Component {
             <span>{props.name}</span>
           </div>
         </div>
-        <div className={middle}>
+        <div className={filter}>
           <div className='points-product'>{props.cost}
             <div className='points-icon'><img src={coin} alt="Points icon"></img>
             </div></div>

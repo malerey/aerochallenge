@@ -114,6 +114,7 @@ class Products extends Component {
 
   render() {
     const received = this.state.received
+    const props = this.props.data 
 
     return (
       <div className='main-products'>
@@ -140,7 +141,7 @@ class Products extends Component {
           {received ? (
             <div className='products'>
               {this.state.renderedData.map((result, index) => {
-                return <Product key={index} result={result} user={this.props.data.userdata} received={this.props.data.received} />;
+                return <Product key={index} result={result} user={props.userdata} received={props.received} />;
               })}
             </div>
           ) : (
