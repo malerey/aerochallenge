@@ -14,7 +14,11 @@ The server runs in port 3001 and the frontend in port 3000.
 
 To-dos: 
 - Add responsive design
+- SVG icons now the same size but still behave weird on hover 🤔
 - When user clics "Highest price" or "Lowest price" while on page 2, page 1 should be displayed 
+- Display user history 
+- Add loading icons to images 
+- Fake John Kite's identity and claim the 112 (and counting) products on his account. 
 
  
 
