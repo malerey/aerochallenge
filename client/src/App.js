@@ -25,6 +25,19 @@ class App extends Component {
       });
   }
 
+  componentDidUpdate() {
+    fetch('http://localhost:3001/user')
+      .then(data => {
+        return data.json();
+      })
+      .then(result => {
+        this.setState({
+          userdata: result,
+          received: true,
+        });
+      });
+  }
+
   render() {
     return (
       <div className="app">

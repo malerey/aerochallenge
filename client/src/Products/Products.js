@@ -3,7 +3,7 @@ import Quantity from '../Quantity/Quantity';
 import Product from '../Product/Product';
 import arrowleft from '../Images/arrow-left.svg'
 import arrowright from '../Images/arrow-right.svg'
-import './Products.css';
+
 
 class Products extends Component {
   constructor(props) {
@@ -47,12 +47,25 @@ class Products extends Component {
   }
 
   nextPage() {
+    if (this.state.page >= this.state.data.length / 16) {
+      this.setState({
+        page: this.state.page,
+      });
+    } else {
     this.changePage(this.state.page + 1)
   }
+}
 
   previousPage() {
+    if (this.state.page <= 1) {
+      this.setState({
+        page: 1,
+      });
+
+    } else {
     this.changePage(this.state.page - 1)
   }
+}
 
   lowerPrice() {
     const offset = (this.state.page - 1) * 16;
