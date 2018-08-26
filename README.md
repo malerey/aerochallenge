@@ -2,7 +2,7 @@
 
 The server is made with Restler, Node.js and Express.
 
-The frontend made with React and SASS.
+The frontend is made with React and SASS.
 
 You must download all archives and run the following commands in both the server dir and the client dir:
 
