@@ -4,17 +4,16 @@ $dark-main-color: #25bbf1;
 $darkest-main-color: #1E9CC8;
 $complementary-color: #fa300a;
 $light-complementary-color: #f15b25;
-
 $white: #ffffff;
 $light-gray: #a3a3a3;
 $grey: #616161;
 $body-background: #f9f9f9;
-$light-buttons: #ededed; 
+$light-buttons: #ededed;
 $dividors: #d9d9d9;
 
 // // SIZES
-$max-width: 100vw;
-$max-container-width: 1176px;
+$max-width: 100%;
+$max-container-width: 80%;
 
 // margins 
 $smallest-margin: 12px;
@@ -29,6 +28,7 @@ $main-margin: 132px;
 // objects
 $border-radius: 100px;
 $button-margin: 0 $smallest-margin 0 $smallest-margin;
+$redeem-margin: 157px $margin 77px $margin;
 $header-height: 80px;
 $logo-height: 36px;
 $logo-width: 39px;
@@ -36,6 +36,10 @@ $product-container: 276px;
 $buy-icon: 50px;
 $button-width: 163px;
 $arrow-width: 150px;
+$img-width: 252px;
+$img-height: 182px;
+$redeem-width: 228px;
+$container-dividor: 228px;
 
 //FONTS 
 $font-stack: 'Source Sans Pro', sans-serif;
@@ -45,9 +49,16 @@ $header-font: 24px;
 $button-font: 18px;
 $category-font: 16px;
 
+//ANIMATIONS 
+$main-transition: .5s ease;
+$main-transform: translate(0px, -10px);
+$logo-animation-name: wiggle;
+$logo-duration: 1000ms;
+$logo-iteration-count: 1;
+$logo-timing-function: ease-in-out;
 
 * {
-  box-sizing: border-box; 
+  box-sizing: border-box;
 }
 
 body {
@@ -76,81 +87,114 @@ header {
 .logo-container {
   height: $logo-height;
   width: $logo-width;
-  display: inline-block; 
+  display: inline-block;
+  &:hover {
+  animation-name: $logo-animation-name;
+  -webkit-animation-name: $logo-animation-name;
+  -ms-animation-name: $logo-animation-name;
+  animation-duration: $logo-duration;
+  -ms-animation-duration: $logo-duration;
+  -webkit-animation-duration: $logo-duration;
+  animation-iteration-count: $logo-iteration-count;
+  -webkit-animation-iteration-count: $logo-iteration-count;
+  -ms-animation-iteration-count: $logo-iteration-count;
+  animation-timing-function: $logo-timing-function;
+  -webkit-animation-timing-function: $logo-timing-function;
+  -ms-animation-timing-function: $logo-timing-function;
 }
 
-.logo-container:hover {
-  -webkit-animation-name: wiggle;
-  -ms-animation-name: wiggle;
-  -ms-animation-duration: 1000ms;
-  -webkit-animation-duration: 1000ms;
-  -webkit-animation-iteration-count: 1;
-  -ms-animation-iteration-count: 1;
-  -webkit-animation-timing-function: ease-in-out;
-  -ms-animation-timing-function: ease-in-out;
+
+  img {
+    height: 100%;
+    width: auto;
+  }
 }
 
 @-webkit-keyframes wiggle {
-  0% {-webkit-transform: rotate(10deg);}
-  25% {-webkit-transform: rotate(-10deg);}
-  50% {-webkit-transform: rotate(20deg);}
-  75% {-webkit-transform: rotate(-5deg);}
-  100% {-webkit-transform: rotate(0deg);}
+  0% {
+    -webkit-transform: rotate(10deg);
+  }
+  25% {
+    -webkit-transform: rotate(-10deg);
+  }
+  50% {
+    -webkit-transform: rotate(20deg);
+  }
+  75% {
+    -webkit-transform: rotate(-5deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+  }
 }
 
 @-ms-keyframes wiggle {
-  0% {-ms-transform: rotate(1deg);}
-  25% {-ms-transform: rotate(-1deg);}
-  50% {-ms-transform: rotate(1.5deg);}
-  75% {-ms-transform: rotate(-5deg);}
-  100% {-ms-transform: rotate(0deg);}
+  0% {
+    -ms-transform: rotate(1deg);
+  }
+  25% {
+    -ms-transform: rotate(-1deg);
+  }
+  50% {
+    -ms-transform: rotate(1.5deg);
+  }
+  75% {
+    -ms-transform: rotate(-5deg);
+  }
+  100% {
+    -ms-transform: rotate(0deg);
+  }
 }
 
 @keyframes wiggle {
-  0% {transform: rotate(10deg);}
-  25% {transform: rotate(-10deg);}
-  50% {transform: rotate(20deg);}
-  75% {transform: rotate(-5deg);}
-  100% {transform: rotate(0deg);}
-}
-
-.logo-container img {
-  height: 100%;
-  width: auto;
+  0% {
+    transform: rotate(10deg);
+  }
+  25% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(20deg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
 .user-name {
-font-size:$header-font;
-color:$grey;
-padding: $smaller-margin $small-margin $smaller-margin 0;
-display: inline-block; 
-}
-
-.user-points-container {
-background:$light-buttons;
-border-radius: $border-radius;
-height:$largest-margin;
-display: inline-block; 
-}
-
-.user-points {
-font-size:$header-font;
-color:$grey;
-line-height: $largest-margin;
-padding: 0 $smallest-margin 0 $smallest-margin;
-display: inline-block;
-}
-
-.user-points-icon {
-  width:$header-font;
-  height:$header-font;
+  font-size: $header-font;
+  color: $grey;
+  padding: $smaller-margin $small-margin $smaller-margin 0;
   display: inline-block;
 }
 
-.user-points-icon img {
-  width: 100%;
-  height: auto;
-  vertical-align: sub;
+.user-points-container {
+  background: $light-buttons;
+  border-radius: $border-radius;
+  height: $largest-margin;
+  display: inline-block;
+}
+
+.user-points {
+  font-size: $header-font;
+  color: $grey;
+  line-height: $largest-margin;
+  padding: 0 $smallest-margin 0 $smallest-margin;
+  display: inline-block;
+}
+
+.user-points-icon {
+  width: $header-font;
+  height: $header-font;
+  display: inline-block;
+  img {
+    width: 100%;
+    height: auto;
+    vertical-align: sub;
+  }
 }
 
 /* SLIDER */
@@ -158,7 +202,7 @@ display: inline-block;
 .main-slider {
   width: $max-width;
   font-size: $slider-font;
-  color:$white;
+  color: $white;
   text-align: left;
   font-weight: 700;
   position: relative;
@@ -168,7 +212,7 @@ display: inline-block;
 .image-container img {
   width: 100%;
   height: auto;
-  display:block;
+  display: block;
 }
 
 .title {
@@ -185,125 +229,123 @@ display: inline-block;
 }
 
 .sort-container {
-margin: 65px $main-margin $margin $main-margin;
-display:flex;
-align-items: stretch;
-text-align: center;
-justify-content: space-between;
-width:$max-container-width;
+  margin: ($main-margin / 2) $main-margin $margin $main-margin;
+  display: flex;
+  align-items: stretch;
+  text-align: center;
+  justify-content: space-between;
+  width: $max-container-width;
 }
 
 .quantity {
   display: inline-block;
-  font-size:$header-font;
-color:$grey;
-line-height:$largest-margin;
-margin: 0 $smallest-margin 0 0;
-
+  font-size: $header-font;
+  color: $grey;
+  line-height: $largest-margin;
+  margin: 0 $smallest-margin 0 0;
 }
 
 .dividor {
   display: inline-block;
-  background:$dividors;
-width:1px;
-height: $largest-margin;
-margin: $button-margin;
+  background: $dividors;
+  width: 1px;
+  height: $largest-margin;
+  margin: $button-margin;
 }
 
 .sort-by {
   display: inline-block;
-font-size:$header-font;
-color:$light-gray;
-line-height:$largest-margin;
-margin: $button-margin;
+  font-size: $header-font;
+  color: $light-gray;
+  line-height: $largest-margin;
+  margin: $button-margin;
 }
 
 .bluebtn {
   display: inline-block;
   background: $main-color;
-  color: white;
-border-radius:$border-radius;
-width:$button-width;
-height:$largest-margin;
-margin: $button-margin;
+  color: $white;
+  border-radius: $border-radius;
+  width: $button-width;
+  height: $largest-margin;
+  margin: $button-margin;
 }
 
 .whitebtn {
   display: inline-block;
-  background:$light-buttons;
-border-radius:$border-radius;
-width:$button-width;
-height:$largest-margin;
-margin: $button-margin;
+  background: $light-buttons;
+  border-radius: $border-radius;
+  width: $button-width;
+  height: $largest-margin;
+  margin: $button-margin;
 }
 
 .arrows {
   width: $arrow-width;
-  display:flex;
+  display: flex;
 }
 
 .next {
-margin-right: 5px;
-width:$largest-margin;
-height:$largest-margin;
+  margin-right: $smaller-margin;
+  width: $largest-margin;
+  height: $largest-margin;
 }
 
 .previous {
-  width:$largest-margin;
-  height:$largest-margin;
-  }
+  width: $largest-margin;
+  height: $largest-margin;
+}
 
 .line {
-background:$dividors;
-display:flex;
-height:1px;
-margin: 0 $main-margin $smallest-margin $main-margin;
-width:$max-container-width;
+  background: $dividors;
+  display: flex;
+  height: 1px;
+  margin: 0 $main-margin $smallest-margin $main-margin;
+  width: $max-container-width;
 }
 
 .products {
   margin: 0 $main-margin 0 $main-margin;
-  width:$max-container-width;
-  display:flex;
+  width: $max-container-width;
+  display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
+
 /* SINGLE PRODUCT */
 
 .container {
-  width:$product-container;
-  height:$product-container;
+  width: $product-container;
+  height: $product-container;
   margin-top: $smallest-margin;
   margin-bottom: $smallest-margin;
   position: relative;
-  transition: .2s ease;
+  transition: $main-transition;
   background-color: $white;
+  :hover .result-container {
+    transform: $main-transform;
+}
 }
 
 
-.container:hover .result-container {
-  transform: translate(0px, -10px);
-
-  }
-
 .result-container {
-  box-shadow:2px 2px 4px 0 rgba(0,0,0,0.10);
+  box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.10);
   width: 100%;
   height: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  transition: .5s ease;
+  transition: $main-transition;
 }
 
 .unavailable {
   opacity: 0.3;
 }
 
-.container:hover{
-  box-shadow:13px 17px 97px -19px rgba(0,0,0,0.75);
-  transform: translate(0px, -10px);
+.container:hover {
+  box-shadow: 13px 17px 97px -19px rgba(0, 0, 0, 0.75);
+  transform: $main-transform;
 }
 
 .buy-icon {
@@ -311,15 +353,16 @@ width:$max-container-width;
   width: $buy-icon;
   position: absolute;
   top: $header-font;
-  left: 210px;
+  left: $larger-margin * 5;
   z-index: 3;
   background-image: url(./Images/buy-blue.svg);
-  transition: .5s ease;
+  transition: $main-transition;
 }
 
+
 .img {
-  width:252px;
-  height:182px;
+  width: $img-width;
+  height: $img-height;
   margin: $smallest-margin;
 }
 
@@ -334,126 +377,102 @@ width:$max-container-width;
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  transition: .5s ease;
+  transition: $main-transition;
 }
 
 .middleavailable {
-  background-image:linear-gradient(-180deg, $main-color 0%, $dark-main-color 100%);
+  background-image: linear-gradient(-180deg, $main-color 0%, $dark-main-color 100%);
 }
 
 .middleunavailable {
-  background-image:linear-gradient(-180deg, $complementary-color 0%, $light-complementary-color 100%);
+  background-image: linear-gradient(-180deg, $complementary-color 0%, $light-complementary-color 100%);
 }
 
-.container:hover .middle {
-  opacity:0.9;
-    transform: translate(0px, 0px)
+.container:hover {
+  .middle {
+  opacity: 0.9;
 }
-
-.container:hover .buy-icon {
+ .buy-icon {
   background-image: url(./Images/buy-white.svg);
-  opacity:1;
-  transform: translate(0, -10px);
+  opacity: 1;
+  transform: $main-transform;
+}
+}
+
+.redeem, .noredeem {
+  background-color: $white;
+  width: $redeem-width;
+  height: $larger-margin;
+  line-height: $larger-margin;
+  font-size: $button-font;
+  color: $grey;
+  text-align: center;
+  border-radius: $border-radius;
+  border: none;
+  opacity: 0;
+  position: relative;
+  margin: $redeem-margin;
 }
 
 .redeem {
-  background-color:$white;
-  width:228px;
-  height:$larger-margin;
-  line-height: $larger-margin;
-  font-size:$button-font;
-  color:$grey;;
-  letter-spacing:-0.04px;
-  text-align:center;
-  border-radius:$border-radius;
-  border: none;
-  opacity:0;
-  position:relative;
-  margin: 157px $margin 77px $margin;
+  &:hover {
+  background-color: $darkest-main-color;
+  color: $white;
+}
+&:active {
+  background-color: $white;
+  color: $grey;
+}
 }
 
 
-
-.noredeem {
-  background-color:$white;
-  width:228px;
-  height:$larger-margin;
-  line-height: $larger-margin;
-  font-size:$button-font;
-  color:$grey;;
-  letter-spacing:-0.04px;
-  text-align:center;
-  border-radius:$border-radius;
-  border: none;
-  opacity:0;
-  position:relative;
-  margin: 157px $margin 77px $margin;
-
+.container:hover {
+  .redeem, .noredeem {
+  transition: $main-transition;
+  opacity: 1;
+  transform: $main-transform;
 }
-
-.redeem:hover {
-    background-color: $darkest-main-color;
-    color: white;
-    
+.points-product {
+  transform: $main-transform;
 }
-
-.redeem:active {
-  background-color:$white;
-
-  color:$grey;;
-
-}
-
-.container:hover .redeem {
-  transition: .5s ease;
-  opacity:1;
-  transform: translate(0px, -10px);
-}
-
-.container:hover .noredeem {
-  transition: .5s ease;
-  opacity:1;
-  transform: translate(0px, -10px);
-}
-
-.container:hover .points-product {
-  transform: translate(0px, -10px);
 }
 
 .points-product {
   font-size: $products-font;
-  color:$white;
+  color: $white;
   display: inline-block;
   margin-bottom: $margin;
-  transition: .5s ease;
+  transition: $main-transition;
 }
 
 .points-icon {
-  width:$header-font;
-  height:$header-font;
+  width: $header-font;
+  height: $header-font;
   display: inline-block;
   vertical-align: sub;
   margin-left: $smallest-margin;
 }
 
 .line-small {
-  background:$dividors;
-  width:228px;
-  height:1px;
-  margin:auto;
+  background: $dividors;
+  width: $container-dividor;
+  height: 1px;
+  margin: auto;
 }
 
 .category-result {
-  font-size:$category-font;
-  color:$light-gray;
-  margin-left:$margin;
-  margin-top:$small-margin;
+  font-size: $category-font;
+  color: $light-gray;
+  margin-left: $margin;
+  margin-top: $small-margin;
 }
 
 .title-result {
-  margin-left:$margin;
-  font-size:$button-font;
-  color:$grey;
-
+  margin-left: $margin;
+  font-size: $button-font;
+  color: $grey;
 }
+
+//MEDIA QUERIES 
+
 

@@ -8,7 +8,7 @@ class Quantity extends Component {
     let page = this.props.result.page
 
     return (
-      <div className='quantity'>Page {page} | {prodslength} of {length} products</div>
+      <div className='quantity'>Page {page} | {prodslength * page} of {length} products</div>
     );
   }
 }
