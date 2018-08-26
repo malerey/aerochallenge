@@ -26,7 +26,7 @@ class Products extends Component {
 
   componentDidMount() {
     const offset = (this.state.page - 1) * 16;
-    fetch('http://localhost:3001/products')
+    fetch('https://server-zbcrpyalrl.now.sh/products')
       .then(data => {
         return data.json();
       })

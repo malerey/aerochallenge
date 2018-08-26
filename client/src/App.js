@@ -13,7 +13,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3001/user')
+    fetch('https://server-zbcrpyalrl.now.sh/user')
       .then(data => {
         return data.json();
       })
@@ -26,7 +26,7 @@ class App extends Component {
   }
 
   componentDidUpdate() {
-    fetch('http://localhost:3001/user')
+    fetch('https://server-zbcrpyalrl.now.sh/user')
       .then(data => {
         return data.json();
       })

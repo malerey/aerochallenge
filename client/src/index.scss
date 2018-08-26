@@ -454,6 +454,7 @@ header {
 
 .products {
   display: grid;
+  justify-content: center;
   grid-template-columns: auto auto auto auto;
   grid-column-gap: $margin;
   grid-row-gap: $margin;
@@ -579,13 +580,6 @@ header {
   margin: $redeem-margin;
 
 }
-
-@media only screen and (max-width: 1175px) {
-  .redeem, .noredeem {
-    margin: 157px 20% 77px 20% }
-
-  }
-
 
 
 .redeem {
