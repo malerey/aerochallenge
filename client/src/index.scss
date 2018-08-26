@@ -13,7 +13,7 @@ $dividors: #d9d9d9;
 
 // // SIZES
 $max-width: 100%;
-$max-container-width: 80%;
+$max-container-width: 1170px;
 
 // margins 
 $smallest-margin: 12px;
@@ -38,7 +38,7 @@ $button-width: 163px;
 $arrow-width: 150px;
 $img-width: 252px;
 $img-height: 182px;
-$redeem-width: 228px;
+$redeem-width: 250px;
 $container-dividor: 228px;
 
 //FONTS 
@@ -171,6 +171,22 @@ header {
   display: inline-block;
 }
 
+@media only screen and (max-width: 768px) {
+  .user-name {
+    font-size: $category-font
+  }
+  }
+@media only screen and (min-width: 768px) and (max-width: 960px) {
+  .user-name {
+    font-size: $category-font
+  }
+  }
+@media screen and (min-width: 960px) and (max-width: 1175px) {
+  .user-name {
+    font-size: $category-font
+  }
+  }
+
 .user-points-container {
   background: $light-buttons;
   border-radius: $border-radius;
@@ -186,6 +202,22 @@ header {
   display: inline-block;
 }
 
+@media only screen and (max-width: 768px) {
+  .user-points {
+    font-size: $category-font
+  }
+  }
+@media only screen and (min-width: 768px) and (max-width: 960px) {
+  .user-points {
+    font-size: $category-font
+  }
+  }
+@media screen and (min-width: 960px) and (max-width: 1175px) {
+  .user-points {
+    font-size: $category-font
+  }
+  }
+
 .user-points-icon {
   width: $header-font;
   height: $header-font;
@@ -196,6 +228,22 @@ header {
     vertical-align: sub;
   }
 }
+
+@media only screen and (max-width: 768px) {
+  .user-points-icon {
+    font-size: $category-font
+  }
+  }
+@media only screen and (min-width: 768px) and (max-width: 960px) {
+  .user-points-icon {
+    font-size: $category-font
+  }
+  }
+@media screen and (min-width: 960px) and (max-width: 1175px) {
+  .user-points-icon {
+    font-size: $category-font
+  }
+  }
 
 /* SLIDER */
 
@@ -209,11 +257,32 @@ header {
   display: inline-block;
 }
 
+@media only screen and (max-width: 768px) {
+  .main-slider {
+    font-size: $products-font;
+  }
+  }
+@media only screen and (min-width: 768px) and (max-width: 960px) {
+  .main-slider {
+    font-size: $products-font;
+  }
+  }
+@media screen and (min-width: 960px) and (max-width: 1175px) {
+  .main-slider {
+    font-size: $products-font;
+  }
+  }
+
+.image-container {
+  width: 100%;
+  height: auto;
+}
+
 .image-container img {
   width: 100%;
   height: auto;
-  display: block;
 }
+
 
 .title {
   position: absolute;
@@ -234,8 +303,23 @@ header {
   align-items: stretch;
   text-align: center;
   justify-content: space-between;
-  width: $max-container-width;
 }
+
+@media only screen and (max-width: 768px) {
+  .sort-container {
+    margin: 0;
+    flex-direction: column;}
+  }
+@media only screen and (min-width: 768px) and (max-width: 960px) {
+  .sort-container {
+    margin: 0;
+    flex-direction: column;}
+  }
+@media screen and (min-width: 960px) and (max-width: 1340px) {
+  .sort-container {
+    margin: 0;
+    flex-direction: column;}
+  }
 
 .quantity {
   display: inline-block;
@@ -245,6 +329,13 @@ header {
   margin: 0 $smallest-margin 0 0;
 }
 
+@media only screen  and (max-width: 960px) {
+  .quantity {
+    font-size: $header-font;
+    margin: 0;}
+  }
+
+
 .dividor {
   display: inline-block;
   background: $dividors;
@@ -253,6 +344,11 @@ header {
   margin: $button-margin;
 }
 
+@media only screen and (max-width: 1340px) {
+  .dividor {
+    display:none;}
+  }
+
 .sort-by {
   display: inline-block;
   font-size: $header-font;
@@ -260,6 +356,23 @@ header {
   line-height: $largest-margin;
   margin: $button-margin;
 }
+
+@media only screen  and (max-width: 960px) {
+  .sort-by {
+    font-size: $header-font;
+  }
+}
+
+  .sort-msg {
+    display: inline-block;
+
+  }
+  @media only screen  and (max-width: 960px) {
+    .sort-msg {
+      display: block;
+  
+    }
+  }
 
 .bluebtn {
   display: inline-block;
@@ -270,6 +383,10 @@ header {
   height: $largest-margin;
   margin: $button-margin;
 }
+@media only screen  and (max-width: 960px) {
+  .bluebtn {
+    margin: $smallest-margin;}
+  }
 
 .whitebtn {
   display: inline-block;
@@ -278,12 +395,30 @@ header {
   width: $button-width;
   height: $largest-margin;
   margin: $button-margin;
+
+}
+@media only screen  and (max-width: 960px) {
+  .whitebtn {
+    margin: $smallest-margin;}
+  }
+
+.whitebtn:hover {
+  box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.10);
 }
 
 .arrows {
   width: $arrow-width;
   display: flex;
 }
+
+@media only screen and (max-width: 1340px) {
+  .arrows {
+  align-self: center;
+  justify-content: space-between;
+  margin: $margin
+  }
+}
+
 
 .next {
   margin-right: $smaller-margin;
@@ -301,25 +436,44 @@ header {
   display: flex;
   height: 1px;
   margin: 0 $main-margin $smallest-margin $main-margin;
-  width: $max-container-width;
 }
+
+@media only screen and (max-width: 768px) {
+  .line {
+    margin: 0}
+  }
+@media only screen and (min-width: 768px) and (max-width: 960px) {
+  .line {
+    margin: 0}
+  }
+@media screen and (min-width: 960px) and (max-width: 1175px) {
+  .line {
+    margin: 0}
+  }
+
 
 .products {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-column-gap: $margin;
+  grid-row-gap: $margin;
   margin: 0 $main-margin 0 $main-margin;
-  width: $max-container-width;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
 }
-
-
+  @media only screen and (max-width: 768px) {
+    .products {
+      grid-template-columns: auto;
+    margin: 0 } }
+  @media only screen and (min-width: 768px) and (max-width: 960px) {
+    .products {
+      grid-template-columns: auto auto;
+    margin:0 } }
+  @media screen and (min-width: 960px) and (max-width: 1175px) {
+    .products {
+      grid-template-columns: auto auto auto;
+    margin:0 } }
 /* SINGLE PRODUCT */
 
 .container {
-  width: $product-container;
-  height: $product-container;
-  margin-top: $smallest-margin;
-  margin-bottom: $smallest-margin;
   position: relative;
   transition: $main-transition;
   background-color: $white;
@@ -349,11 +503,20 @@ header {
 }
 
 .buy-icon {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: absolute;
+  right: 0;
+  margin: 12px;
+  padding: 8px 15px;
+  display: inline-block;
+
   height: $buy-icon;
   width: $buy-icon;
-  position: absolute;
-  top: $header-font;
-  left: $larger-margin * 5;
   z-index: 3;
   background-image: url(./Images/buy-blue.svg);
   transition: $main-transition;
@@ -361,9 +524,10 @@ header {
 
 
 .img {
-  width: $img-width;
-  height: $img-height;
-  margin: $smallest-margin;
+  text-align: center;
+  padding: 10px;
+  min-height: 185px;
+  min-width: 255px;
 }
 
 .middle {
@@ -400,6 +564,7 @@ header {
 }
 
 .redeem, .noredeem {
+
   background-color: $white;
   width: $redeem-width;
   height: $larger-margin;
@@ -412,7 +577,16 @@ header {
   opacity: 0;
   position: relative;
   margin: $redeem-margin;
+
 }
+
+@media only screen and (max-width: 1175px) {
+  .redeem, .noredeem {
+    margin: 157px 20% 77px 20% }
+
+  }
+
+
 
 .redeem {
   &:hover {
@@ -472,7 +646,3 @@ header {
   font-size: $button-font;
   color: $grey;
 }
-
-//MEDIA QUERIES 
-
-

@@ -11,7 +11,6 @@ class Product extends Component {
 
   handleRedeem() {
     const id = this.props.result._id
-    console.log("redeem")
     fetch('http://localhost:3001/redeem/' + id, {
       method: 'post',
     });
